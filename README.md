@@ -1,5 +1,5 @@
 # Know-Thy-Customer
-Customer segmentation using K-means clustering and dimensionality reduction. 
+### *Customer segmentation using K-means clustering and dimensionality reduction*
 ![](/images/Customer-Segmentation-fp.jpg)
 
 Clever marketers understand that a company’s  best customers are their **existing customers**.  Offering tailor-made solutions to existing clients can strengthen the company’s relationship with a client by showing them that they ‘**know**’ them and ‘**get**’ what they are all about.  
@@ -62,7 +62,7 @@ A quick look at the data dictionary reveals the following information about each
 
 ## Methodology Overview
 
-I will attempt **three different approaches**  to clustering the data and compare the outputs to get to the ideal customer clusters.  The first will be a clustering on the full feature dataset.  In the second and third approaches I will perform dimension reduction and the apply clustering on the reduced dataset. 
+I will attempt **three different approaches**  to clustering the data and compare the outputs to get to the ideal customer clusters.  The first will be a clustering on the **full feature dataset**.  In the second and third approaches I will perform **dimension reduction** using an **autoencoders** and a **RFM analysis**  and then apply unsupervised clustering on the reduced dataset. 
 
 
 ## Definitions
@@ -96,14 +96,18 @@ I will attempt **three different approaches**  to clustering the data and compar
 
 ### Method 1 : K-Means and the Elbow Method on Full Feature Set
 
-In this evaluation we ran **K-means** multiple times and using the **Elbow method** determined that k=8 is the optimal clustering solution. 
+In this evaluation we ran **K-means** multiple times and plotting the wcss scores (within cluster sum of squares) to use the **Elbow method**.  Optimal k for this method proved to be k=8 clusters.  
+
 ![](/images/m1-elbow.png)
 ![](/images/m1-clusters.png)
-![](/images/m1-hist.png)
 
-Evaluating the clusters we see that the data in each cluster is more normally distributed than what was observed in the first histograms.  Although these visualisations contain a wealth of information for the marketing team to mine, analyse and use, there is a lot of overlapping and it is not really presenting us with a clear picture of each of the clusters. 
+The cluster map shows a lot of overlapping between clusters as well as clusters that are dispersed across different areas.   It does not really present us with a clear picture of where these dividing lines should be. 
 
-In the next method we will see if we can improve on this set of clusters.
+![](/images/m1-hist2.png)
+
+Looking at the features, for example the Credit Limit pictured above, we do see data that is more normally distributed but attempting to describe these clusters we find it difficult to form a picture of each group. 
+
+In the next method we will see if we can improve on this customer segmentation. 
 
 ### Method 2 : Autoencoders to reduce dimensionality and k-means to cluster the encoded features.
 
@@ -112,9 +116,12 @@ Using the reduced dataset, we again ran **K-means** at different *k-values* and 
 
 ![](/images/m2-elbow.png)
 ![](/images/m2-clusters.png)
+
+The result of our second method shows a tighter grouping and less scatter, and probably gives a result that is more in line with the expectation of the marketing team.  As can be seen, one cluster is more dispersed that the other two.  
+
 ![](/images/m2-hist.png)
 
-The result of our second method shows a tighter grouping and less scatter, and probably gives a result that is more in line with the expectation of the marketing team.  As can be seen, one cluster is more dispersed that the other two.  These clusters should be tested against domain knowledge.  Using colleagues with knowledge of the company products and clients as sounding board to confirm findings is always worthwhile. 
+Visualising the features of each cluster we can se a clearer picture emerging than with the first method.  This information should be tested against domain knowledge of the company's domain expertise.  
 
 ### Method 3 : RFM Analysis
 
@@ -124,9 +131,11 @@ Following this we again ran **K-means** multiple times, obtained the WCSS scores
 
 ![](/images/m3-elbow.png)
 ![](/images/m3-clusters.png)
+The resulting 3 clusters from the RFM analys confirms the results from method 2 that also eluded to 3 distinct groups of clients in the dataset.
+
 ![](/images/m3-hist.png)
 
-The resulting 3 clusters from the RFM analys confirms the results from method 2 that also eluded to 3 distinct groups of clients in the dataset.  Again it should be stressed that this information should be tested against solid domain knowledge of the client base to get the most out of the segmentation exercise.   
+Visualising the features of each group, we end up with three very similar groups when compared to method 2.  The scrutiny of experienced marketers will be the deciding factor in which method would be the best to use. 
 
 ### Comparing the 3 methods
 
@@ -134,13 +143,13 @@ The resulting 3 clusters from the RFM analys confirms the results from method 2 
 ![](/images/m2-3D.png)
 ![](/images/m3-3D.png)
 
-The clusters in the second and third analysis seem to both hint to the existance of three distinct groups in the dataset.  This fact instills confidence that their probably are 3 types of clients in the dataset. 
+Comparing the clusters from each of the three methods, it seems that theoretically speaking, the RFM analysis yielded the best results.  The clusters seems tighter and more evenly sized.  
 
-There is one difference between the second and third methods, and that seems to be the size of the clusters.  While method 2 produces more uneven sized groups, method 3 produces more equal sized cohorts.  
+## Conclusion##
 
-From a theoretical perspective, method 3 would be the better approach, however, this is not might not be the case when we look at the actual clients.
+Clustering on it's own can be an exceptionally valuable tool but its true power will be shown when it is coupled with extensive domain knowledge of the company and its products and insights, knowledge and understanding of the market, the company and its products. 
 
-This takes us back to a very important point. Clustering on it's own can be an exceptionally valuable tool but its true power willl come to light if it is coupled with extensive domain knowledge of the company and its products and   insights into the market. 
+
 ## Shout-outs and References
 
 This project was inspired by a notebook from a [Udemy courses](https://www.udemy.com) by respected [Prof Ryan Ahmed Ph.D, MBA](https://www.udemy.com/user/ryan-ahmed/) on clustering. 
@@ -151,18 +160,6 @@ I was also able to glean helpful insights into the **practical application of k-
 
 
 
-
-In **Method 2** we will first reduce the dimensionality of the dataset to 10 features by using the encoded layer of an **Autoencoder artificial neural network**.  
-
-We will then group the **smaller dataset** with **K-means** at different *k-values* and apply the **Elbow method** to find the **optimal k**. 
-
-Once again we will create visual representations of the results to evaluate and compare. 
-
-For **Method 3** we will perform a **RFM Analysis** (recency, frequency and monetary).  This will require us to first categorise the data features into recency-, frequency- and monetary groups.  Once grouped we will work out a score for each category.   
-
-Next we will use the three scores, recency-score, frequency-score and monetary score, run **K-means**, apply the **Elbow method** to find optimal k.  Following this we will again **visualise the clusters**, then **visualise the features** and attempt to **describe** each of the clusters. 
-
-Since our dataset does not have any transaction dates in it, we will have to improvise to find a way to represent the **recency** metric. 
 
   
 
