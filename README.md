@@ -138,9 +138,11 @@ The resulting 3 clusters from the RFM analys confirms the results from method 2 
 Visualising the features of each group, we end up with three very similar groups when compared to method 2.  The scrutiny of experienced marketers will be the deciding factor in which method would be the best to use. 
 
 ### Comparing the 3 methods
-
+#### Method 1 : K-Means
 ![](/images/m1-3D.png)
+#### Method 2 : Autoencoders and K-Means
 ![](/images/m2-3D.png)
+#### RFM Analysis 
 ![](/images/m3-3D.png)
 
 Comparing the clusters from each of the three methods, it seems that theoretically speaking, the RFM analysis yielded the best results.  The clusters seems tighter and more evenly sized.  
