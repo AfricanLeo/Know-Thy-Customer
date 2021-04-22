@@ -67,11 +67,11 @@ I will attempt **three different approaches**  to clustering the data and compar
 
 ## Definitions
 
-### Clustering
+#### Clustering
 
 > Clustering is a method of **unsupervised learning** that finds similarities and patterns in data points and groups them together accordingly.  This is done without prior knowledge of the data features. 
 
-### K-Means
+#### K-Means
 
 > **K-means** is one of the best known clustering algorithms in machine learning. It creates *k* homogeneous groups by minimising the Euclidian distance between the data points in a cluster. The number of clusters, *k*, must be provided as an argument. 
 
@@ -82,15 +82,15 @@ I will attempt **three different approaches**  to clustering the data and compar
 > 1.   Clusters are spatially grouped or spherical
 > 2.   Clusters are of similar size
 
-### Dimensionality Reduction
+#### Dimensionality Reduction
 
 > Real life datasets often contain huge numbers of features.  This might make it complicated to extract homogeneous groups from the data. There are several ways, automated and manual, that we can reduce the dimensions of the data to get a better handle on what cohorts exist within a dataset. 
 
-### Principal Component Analysis
+#### Principal Component Analysis
 
 > **PCA** is an unsupervised machine learning algorithm that performs dimensionality reduction while attempting at keeping the original information unchanged. PCA works by finding composites of features called components. 
 
-### RFM Analysis
+#### RFM Analysis
 
 > **RFM Analysis** is an easy and effective segmentation technique that divides types of data into recency, frequency and monetary data bundles and works out a score for each.  Once the data is segmented this way, algorithms can be performed on the newly formed dataset.  This technique combines knowledge of the data and the environment in which the data exists with the power of machine learning algorithms. 
 
