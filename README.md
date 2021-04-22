@@ -147,7 +147,7 @@ Visualising the features of each group, we end up with three very similar groups
 
 Comparing the clusters from each of the three methods, it seems that theoretically speaking, the RFM analysis yielded the best results.  The clusters seems tighter and more evenly sized.  
 
-## Conclusion##
+## Conclusion
 
 Clustering on it's own can be an exceptionally valuable tool but its true power will be shown when it is coupled with extensive domain knowledge of the company and its products and insights, knowledge and understanding of the market, the company and its products. 
 
