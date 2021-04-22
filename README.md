@@ -97,7 +97,7 @@ I will attempt **three different approaches**  to clustering the data and compar
 ### Method 1 : K-Means and the Elbow Method on Full Feature Set
 
 In this evaluation we ran **K-means** multiple times and using the **Elbow method** determined that k=8 is the optimal clustering solution. 
-![Elbow Graph](/images/m1-elbow.png)
+![](/images/m1-elbow.png)
 ![](/images/m1-clusters.png)
 ![](/images/m1-hist.png)
 
@@ -110,12 +110,37 @@ In the next method we will see if we can improve on this set of clusters.
 In this segmentation we built an **Autoencoder artificial neural network** to reduce the dimensionality of the dataset. 
 Using the reduced dataset, we again ran **K-means** at different *k-values* and applying the **Elbow method** we discovered *k=3* to be the optimal number of clusters.  
 
-![Elbow Graph](/images/m2-elbow.png)
+![](/images/m2-elbow.png)
 ![](/images/m2-clusters.png)
-![](/images/m12-hist.png)
+![](/images/m2-hist.png)
 
 The result of our second method shows a tighter grouping and less scatter, and probably gives a result that is more in line with the expectation of the marketing team.  As can be seen, one cluster is more dispersed that the other two.  These clusters should be tested against domain knowledge.  Using colleagues with knowledge of the company products and clients as sounding board to confirm findings is always worthwhile. 
 
+### Method 3 : RFM Analysis
+
+In **Method 3** we performed a **RFM Analysis** (recency, frequency and monetary).  Since our dataset does not have any transaction dates in it, we had to improvise and **engineer features** that simulate and/or represent recency.  From the dataset description we learned that the data was gathered over a **six month period**, so it seems reasonable to use the **number of times** the clients transacted to represent this aspect of the analysis. I decided to keep the math simple and work out a basic mean with **no special weights** attributed to any of the features.
+
+Following this we again ran **K-means** multiple times, obtained the WCSS scores (within cluster sum of squares) and using the **Elbow method** determined *optimal k=3*, similar to the second method.  
+
+![](/images/m3-elbow.png)
+![](/images/m3-clusters.png)
+![](/images/m3-hist.png)
+
+The resulting 3 clusters from the RFM analys confirms the results from method 2 that also eluded to 3 distinct groups of clients in the dataset.  Again it should be stressed that this information should be tested against solid domain knowledge of the client base to get the most out of the segmentation exercise.   
+
+### Comparing the 3 methods
+
+![](/images/m1-3D.png)
+![](/images/m2-3D.png)
+![](/images/m3-3D.png)
+
+The clusters in the second and third analysis seem to both hint to the existance of three distinct groups in the dataset.  This fact instills confidence that their probably are 3 types of clients in the dataset. 
+
+There is one difference between the second and third methods, and that seems to be the size of the clusters.  While method 2 produces more uneven sized groups, method 3 produces more equal sized cohorts.  
+
+From a theoretical perspective, method 3 would be the better approach, however, this is not might not be the case when we look at the actual clients.
+
+This takes us back to a very important point. Clustering on it's own can be an exceptionally valuable tool but its true power willl come to light if it is coupled with extensive domain knowledge of the company and its products and   insights into the market. 
 ## Shout-outs and References
 
 This project was inspired by a notebook from a [Udemy courses](https://www.udemy.com) by respected [Prof Ryan Ahmed Ph.D, MBA](https://www.udemy.com/user/ryan-ahmed/) on clustering. 
