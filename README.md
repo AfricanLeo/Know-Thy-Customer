@@ -80,13 +80,11 @@ I will attempt **three different approaches**  to clustering the data and compar
 > **K-means clustering** does have 2 very important assumptions that can easily ruin your analysis if not taken into account.  These assumptions are:
 
 > 1.   Clusters are spatially grouped or spherical
-2.   Clusters are of similar size
+> 2.   Clusters are of similar size
 
 ### Dimensionality Reduction
 
-> Real life datasets often contain huge numbers of features.  This might make it complicated to extract homogeneous groups from the data. 
-
-> There are several ways, automated and manual, that we can reduce the dimensions of the data to get a better handle on what cohorts exist within a dataset. 
+> Real life datasets often contain huge numbers of features.  This might make it complicated to extract homogeneous groups from the data. There are several ways, automated and manual, that we can reduce the dimensions of the data to get a better handle on what cohorts exist within a dataset. 
 
 ### Principal Component Analysis
 
@@ -94,11 +92,7 @@ I will attempt **three different approaches**  to clustering the data and compar
 
 ### RFM Analysis
 
-> **RFM Analysis** is an easy and effective segmentation technique that divides types of data into recency, frequency and monetary data bundles and works out a score for each.
-
-> Once the data is segmented this way, algorithms can be performed on the newly formed dataset.
-
-> This technique combines knowledge of the data and the environment in which the data exists with the power of machine learning algorithms. 
+> **RFM Analysis** is an easy and effective segmentation technique that divides types of data into recency, frequency and monetary data bundles and works out a score for each.  Once the data is segmented this way, algorithms can be performed on the newly formed dataset.  This technique combines knowledge of the data and the environment in which the data exists with the power of machine learning algorithms. 
 
 ### Method 1 : K-Means and the Elbow Method on Full Feature Set
 
@@ -110,6 +104,17 @@ In this evaluation we ran **K-means** multiple times and using the **Elbow metho
 Evaluating the clusters we see that the data in each cluster is more normally distributed than what was observed in the first histograms.  Although these visualisations contain a wealth of information for the marketing team to mine, analyse and use, there is a lot of overlapping and it is not really presenting us with a clear picture of each of the clusters. 
 
 In the next method we will see if we can improve on this set of clusters.
+
+### Method 2 : Autoencoders to reduce dimensionality and k-means to cluster the encoded features.
+
+In this segmentation we built an **Autoencoder artificial neural network** to reduce the dimensionality of the dataset. 
+Using the reduced dataset, we again ran **K-means** at different *k-values* and applying the **Elbow method** we discovered *k=3* to be the optimal number of clusters.  
+
+![Elbow Graph](/images/m2-elbow.png)
+![](/images/m2-clusters.png)
+![](/images/m12-hist.png)
+
+The result of our second method shows a tighter grouping and less scatter, and probably gives a result that is more in line with the expectation of the marketing team.  As can be seen, one cluster is more dispersed that the other two.  These clusters should be tested against domain knowledge.  Using colleagues with knowledge of the company products and clients as sounding board to confirm findings is always worthwhile. 
 
 ## Shout-outs and References
 
