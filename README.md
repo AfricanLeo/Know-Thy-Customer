@@ -21,41 +21,41 @@ The [Credit Card Dataset](https://www.kaggle.com/arjunbhasin2013/ccdata) is a su
 
 A quick look at the data dictionary reveals the following information about each feature in the dataset:
 
-**CUSTID** : Identification of Credit Card holder (Categorical)
+  1.  **CUSTID** : Identification of Credit Card holder (Categorical)
 
-**BALANCE** : Balance amount left in their account to make purchases
+  2.  **BALANCE** : Balance amount left in their account to make purchases
 
-**BALANCE_FREQUENCY**  : How frequently the Balance is updated, score between 0 and 1 (1 = frequently updated, 0 = not frequently updated)
+  3.  **BALANCE_FREQUENCY**  : How frequently the Balance is updated, score between 0 and 1 (1 = frequently updated, 0 = not frequently updated)
 
-**PURCHASES** : Amount of purchases made from account
+  4.  **PURCHASES** : Amount of purchases made from account
 
-**ONEOFF_PURCHASES** : Maximum purchase amount done in one-go
+  5.  **ONEOFF_PURCHASES** : Maximum purchase amount done in one-go
 
-**INSTALLMENTS_PURCHASES** : Amount of purchase done in installment
+  6.  **INSTALLMENTS_PURCHASES** : Amount of purchase done in installment
 
-**CASH_ADVANCE** : Cash in advance given by the user
+  7.  **CASH_ADVANCE** : Cash in advance given by the user
 
-**PURCHASES_FREQUENCY** : How frequently the Purchases are being made, score between 0 and 1 (1 = frequently purchased, 0 = not frequently purchased)
+  8.  **PURCHASES_FREQUENCY** : How frequently the Purchases are being made, score between 0 and 1 (1 = frequently purchased, 0 = not frequently purchased)
 
-**ONEOFF_PURCHASES_FREQUENCY** : How frequently Purchases are happening in one-go (1 = frequently purchased, 0 = not frequently purchased)
+  9.  **ONEOFF_PURCHASES_FREQUENCY** : How frequently Purchases are happening in one-go (1 = frequently purchased, 0 = not frequently purchased)
 
-**PURCHASES_INSTALLMENTS_FREQUENCY** : How frequently purchases in installments are being done (1 = frequently done, 0 = not frequently done)
+  10.  **PURCHASES_INSTALLMENTS_FREQUENCY** : How frequently purchases in installments are being done (1 = frequently done, 0 = not frequently done)
 
-**CASH_ADVANCE_FREQUENCY** : How frequently the cash in advance being paid
+  11.  **CASH_ADVANCE_FREQUENCY** : How frequently the cash in advance being paid
 
-**CASH_ADVANCE_TRX** : Number of Transactions made with "Cash in Advanced"
+  12.  **CASH_ADVANCE_TRX** : Number of Transactions made with "Cash in Advanced"
 
-**PURCHASES_TRX** : Numbe of purchase transactions made
+  13.  **PURCHASES_TRX** : Numbe of purchase transactions made
 
-**CREDIT_LIMIT** : Limit of Credit Card for user
+  14.  **CREDIT_LIMIT** : Limit of Credit Card for user
 
-**PAYMENTS** : Amount of Payment done by user
+  15.  **PAYMENTS** : Amount of Payment done by user
 
-**MINIMUM_PAYMENTS** : Minimum amount of payments made by user
+  16.  **MINIMUM_PAYMENTS** : Minimum amount of payments made by user
 
-**PRC_FULL_PAYMENT** : Percentage of full payments paid by user
+  17.  **PRC_FULL_PAYMENT** : Percentage of full payments paid by user
 
-**TENURE** : Tenure of credit card service for user
+  18.  **TENURE** : Tenure of credit card service for user
 
 **Data Source: https://www.kaggle.com/arjunbhasin2013/ccdata**
 
@@ -63,9 +63,6 @@ A quick look at the data dictionary reveals the following information about each
 ## Methodology Overview
 
 I will attempt **three different approaches**  to clustering the data and compare the outputs to get to the ideal customer clusters.  The first will be a clustering on the full feature dataset.  In the second and third approaches I will perform dimension reduction and the apply clustering on the reduced dataset. 
-
-
-
 
 
 ## Definitions
@@ -103,7 +100,16 @@ I will attempt **three different approaches**  to clustering the data and compar
 
 > This technique combines knowledge of the data and the environment in which the data exists with the power of machine learning algorithms. 
 
+### Method 1 : K-Means and the Elbow Method on Full Feature Set
 
+In this evaluation we ran **K-means** multiple times and using the **Elbow method** determined that k=8 is the optimal clustering solution. 
+![Elbow Graph](/images/m1-elbow.png)
+![](/images/m1-clusters.png)
+![](/images/m1-hist.png)
+
+Evaluating the clusters we see that the data in each cluster is more normally distributed than what was observed in the first histograms.  Although these visualisations contain a wealth of information for the marketing team to mine, analyse and use, there is a lot of overlapping and it is not really presenting us with a clear picture of each of the clusters. 
+
+In the next method we will see if we can improve on this set of clusters.
 
 ## Shout-outs and References
 
@@ -114,11 +120,7 @@ The dataset is not perfect for a RFM since it contains not dates. To solve the *
 I was also able to glean helpful insights into the **practical application of k-means** clustering by reading through [Burak Özen](https://towardsdatascience.com/customer-journey-based-segmentation-for-marketplaces-70e5a56838a7)'s article on K-means and it's limitations. 
 
 
-In **Method 1** I will take the dataset with all of it's 17 features and group the clients using the **K-means** clustering algorithm.  The **Elbow method** will help us determine the optimal number of clusters, i.e. the value of *k*.
 
-
-
-Once determined, we will use **visualisations** to evaluate and describe the results. 
 
 In **Method 2** we will first reduce the dimensionality of the dataset to 10 features by using the encoded layer of an **Autoencoder artificial neural network**.  
 
