@@ -160,7 +160,7 @@ The dataset is not perfect for a RFM since it contains not dates. To solve the *
 
 I was also able to glean helpful insights into the **practical application of k-means** clustering by reading through [Burak Özen](https://towardsdatascience.com/customer-journey-based-segmentation-for-marketplaces-70e5a56838a7)'s article on K-means and it's limitations. 
 
-
+[RETURN TO PORTFOLIO](https://africanleo.github.io/Leonora-Schreurs-Portfolio/)
 
 
   
