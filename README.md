@@ -13,7 +13,7 @@ This divides users into similar or homogeneous groups that exhibit similar trait
 
 Machine learning provides the modern marketer with a number of algorithms, tools and techniques to analyse large amounts of data and reveal patterns, correlations, differences and similarities that might be hidden to the naked eye. Clustering algorithms belong to a family of unsupervised learning techniques that does just this.
 
-In this project I will perform a **customer segmentation** on the [Credit Card Dataset](https://www.kaggle.com/arjunbhasin2013/ccdata) from the [Kaggle](https://www.kaggle.com) website using clustering and dimensionality reduction techniques interchangibly. 
+In this project I will perform a **customer segmentation** on the [Credit Card Dataset](https://www.kaggle.com/arjunbhasin2013/ccdata) from the [Kaggle](https://www.kaggle.com) website using clustering and dimensionality reduction techniques interchangeably. 
 
 ## A Look At The Data
 
@@ -142,7 +142,7 @@ Visualising the features of each group, we end up with three very similar groups
 ![](/images/m1-3D.png)
 #### Method 2 : Autoencoders and K-Means
 ![](/images/m2-3D.png)
-#### RFM Analysis 
+#### Method 3 : RFM Analysis 
 ![](/images/m3-3D.png)
 
 Comparing the clusters from each of the three methods, it seems that theoretically speaking, the RFM analysis yielded the best results.  The clusters seems tighter and more evenly sized.  
